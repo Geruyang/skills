@@ -1,0 +1,4 @@
+interface:
+  display_name: "DevDay Guide"
+  short_description: "Plan DevDay sessions and find official event information"
+  default_prompt: "Use $devday-guide to help me plan my DevDay around my interests and availability."

@@ -1,0 +1,182 @@
+[
+  {
+    "query": "What steps should I follow to launch an RTL behavioral simulation in Vivado?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to run behavioral simulation in Vivado?",
+    "should_trigger": true
+  },
+  {
+    "query": "My post-synthesis simulation results differ from the RTL simulation. How should I debug this?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to do post-implementation timing simulation with SDF back-annotation?",
+    "should_trigger": true
+  },
+  {
+    "query": "What is the three-step xsim flow, and how do I use xvlog, xelab, and xsim?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to use xelab debug level options? What is the difference between -debug typical and -debug all?",
+    "should_trigger": true
+  },
+  {
+    "query": "How do I use add_force to drive a clock signal in simulation?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to set breakpoints and step through simulation in xsim?",
+    "should_trigger": true
+  },
+  {
+    "query": "How do I generate a timing simulation netlist using write_verilog -mode timesim together with write_sdf?",
+    "should_trigger": true
+  },
+  {
+    "query": "What is glbl.v and when do I need to include it in simulation?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to integrate Questa/ModelSim with Vivado? What is compile_simlib?",
+    "should_trigger": true
+  },
+  {
+    "query": "How do I collect a SAIF file during simulation for power analysis?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to dump VCD waveform from xsim simulation?",
+    "should_trigger": true
+  },
+  {
+    "query": "Which mode and type options does launch_simulation support?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to configure xsim simulation properties in project mode? Like runtime, log_all_signals, debug_level?",
+    "should_trigger": true
+  },
+  {
+    "query": "How should I configure VCS to simulate a Vivado design?",
+    "should_trigger": true
+  },
+  {
+    "query": "What is the difference between export_simulation and launch_simulation -scripts_only?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to add waveform signals and log all signals in xsim? log_wave and add_wave usage.",
+    "should_trigger": true
+  },
+  {
+    "query": "How should I investigate setup and hold violations reported during timing simulation?",
+    "should_trigger": true
+  },
+  {
+    "query": "How do I read signal values in xsim using get_value and get_objects?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to generate post-synthesis functional simulation netlist with write_verilog -mode funcsim?",
+    "should_trigger": true
+  },
+  {
+    "query": "What do the xelab options -transport_int_delays, -pulse_r, and -pulse_e mean?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to select process corner (fast/slow) for SDF file generation?",
+    "should_trigger": true
+  },
+  {
+    "query": "How do I create an additional simulation fileset, such as sim_2 alongside sim_1?",
+    "should_trigger": true
+  },
+  {
+    "query": "What SystemVerilog features does xsim support? DPI-C, constrained random, assertions?",
+    "should_trigger": true
+  },
+  {
+    "query": "What is the complete flow for using open_saif and read_saif with report_power?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to use xsim multithreading? xelab -mt option.",
+    "should_trigger": true
+  },
+  {
+    "query": "How do I resolve an undefined module glbl error in timing simulation?",
+    "should_trigger": true
+  },
+  {
+    "query": "How to use Xcelium simulator with Vivado designs?",
+    "should_trigger": true
+  },
+  {
+    "query": "How do I set a conditional breakpoint in xsim with add_bp -condition?",
+    "should_trigger": true
+  },
+  {
+    "query": "How can I optimize Vivado synthesis strategies to improve timing?",
+    "should_trigger": false
+  },
+  {
+    "query": "How to write XDC timing constraints for clock definition?",
+    "should_trigger": false
+  },
+  {
+    "query": "How do I define a false-path constraint?",
+    "should_trigger": false
+  },
+  {
+    "query": "How to run place_design with congestion-aware directives?",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a Vivado TCL script that automatically creates a project and adds source files.",
+    "should_trigger": false
+  },
+  {
+    "query": "How to use set_multicycle_path constraint?",
+    "should_trigger": false
+  },
+  {
+    "query": "How should I choose a directive for phys_opt_design?",
+    "should_trigger": false
+  },
+  {
+    "query": "How to configure Vivado synthesis attributes like KEEP_HIERARCHY?",
+    "should_trigger": false
+  },
+  {
+    "query": "My design has severe congestion during route_design. What should I do?",
+    "should_trigger": false
+  },
+  {
+    "query": "How to do incremental implementation with read_checkpoint -incremental?",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a FIFO module in Verilog.",
+    "should_trigger": false
+  },
+  {
+    "query": "How to use create_clock and create_generated_clock in XDC?",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a Python script to parse a Vivado timing report.",
+    "should_trigger": false
+  },
+  {
+    "query": "What is the difference between synth_design -directive options?",
+    "should_trigger": false
+  },
+  {
+    "query": "How to set IOSTANDARD and PACKAGE_PIN constraints?",
+    "should_trigger": false
+  }
+]

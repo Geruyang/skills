@@ -1,0 +1,6 @@
+interface:
+  display_name: "知形 UI 设计"
+  short_description: "融合创意探索与设计规范，为客户端、网页及 App 设计并打磨 UI"
+  default_prompt: "使用 $intentional-ui-design，根据当前产品目标和技术栈设计并打磨界面，结合 UI UX Pro Max 检索并验证实际呈现。"
+policy:
+  allow_implicit_invocation: true

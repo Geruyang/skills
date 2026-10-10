@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "recorded_at": null,
+  "board": {
+    "model": null,
+    "model_evidence": null,
+    "pcb_revision": null,
+    "soc_marking": null,
+    "vivado_part": null,
+    "part_evidence": [],
+    "physical_verification": false
+  },
+  "development_route": null,
+  "hardware_sources": {
+    "schematic": null,
+    "pinout_xdc": null,
+    "bank_vcco": null,
+    "ps_ddr_mio_preset": null,
+    "clock_reset": null,
+    "boot_mode": null,
+    "power_uart_jtag": null
+  },
+  "versions": {
+    "vivado": null,
+    "vitis_or_sdk": null,
+    "hls": null,
+    "petalinux_or_bsp": null,
+    "kernel": null,
+    "rootfs": null,
+    "edgeboard_softcore": null,
+    "inference_runtime": null,
+    "model_converter": null
+  },
+  "artifacts": [],
+  "recovery": {
+    "baseline_image": null,
+    "backup_location": null,
+    "procedure_source": null,
+    "verified": false
+  },
+  "validation": [],
+  "unresolved": []
+}

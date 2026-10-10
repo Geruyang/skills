@@ -1,0 +1,6 @@
+interface:
+  display_name: "A股预测补充skill"
+  short_description: "A股调研必用补充：推演未来基本面与预期差，结合历史、计价和资金形成判断"
+  default_prompt: "请使用 $ashare-forward-expectations，先预测未来基本面和预期差，再更新相关A股板块的走势判断。"
+policy:
+  allow_implicit_invocation: true

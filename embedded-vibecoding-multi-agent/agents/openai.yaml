@@ -1,0 +1,7 @@
+interface:
+  display_name: "嵌入式vibecoding多agent并行开发技能"
+  short_description: "适合时先征询用户，再由主agent协调采集、独立分析与代码实现三个固定角色"
+  default_prompt: "使用 $embedded-vibecoding-multi-agent 按主agent与三个固定角色协作完成本次工程任务。"
+policy:
+  # Discovery enters the ask-first gate in SKILL.md, never automatic delegation.
+  allow_implicit_invocation: true

@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 项目特定
+input/*.pdf
+output/*.xlsx
+logs/*.log
+_user_meta.json
+
+# 保留目录结构
+!input/.gitkeep
+!output/.gitkeep
+!logs/.gitkeep
+
+# 临时文件
+*.tmp
+*.bak

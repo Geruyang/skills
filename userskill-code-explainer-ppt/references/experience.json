@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "review_count": 9,
+  "last_review_date": "2026-10-01",
+  "processed_review_ids": [
+    "01a09e8c-2031-72f2-9df2-ff983c5dc712-skill-seed-20260914",
+    "01a09e13-b8e4-7732-9a50-5d20938085b4-pspl-20260915",
+    "gesturescreen-completion-ppt-20260915-v2",
+    "gesturescreen-challenger-v1-video-clips-ppt-20260916-v1",
+    "gesturescreen-static-marker-ppt-generic-voice-20260916-v2",
+    "gesturescreen-three-bugfix-rounds-ppt-20260916-v1",
+    "gesturescreen-ppt-no-sound-repair-20260916-v3",
+    "ebvc-project-final-cleanup-20260923",
+    "agent-architecture-lecture-20260930-final-v1"
+  ],
+  "recent_reviews": [
+    {
+      "review_id": "01a09e8c-2031-72f2-9df2-ff983c5dc712-skill-seed-20260914",
+      "date": "2026-09-14",
+      "task": "从 GestureScreen 两轮修改讲解、苏晴配音和 WPS 修复中建立用户技能",
+      "result": "updated",
+      "summary": "整合工程源码讲解与多轮修改证据、配音分段计时、标记几何检查、WPS 用户反馈和静态步骤修复；区分文件检查与实播放映。"
+    },
+    {
+      "review_id": "01a09e13-b8e4-7732-9a50-5d20938085b4-pspl-20260915",
+      "date": "2026-09-15",
+      "task": "LiteSeg PS/PL 整网实现及代码讲解 PPT",
+      "result": "updated",
+      "summary": "已复盘；新增 FPGA 整网讲解中模型尺寸、执行后端、周期与时序口径的联合记录规则。"
+    },
+    {
+      "review_id": "gesturescreen-completion-ppt-20260915-v2",
+      "date": "2026-09-15",
+      "task": "GestureScreen 板级实现、电脑采集与模型工具链代码讲解 PPT",
+      "result": "updated",
+      "summary": "已复盘：将并行源码冻结与最终构建核对合并入既有来源经验；新增公开权重/合成夹具/个人数据的验证边界，以及概念图可见说明。静态 PPT 已逐页检查，未进行 WPS/PowerPoint 实播或上板测试。"
+    },
+    {
+      "review_id": "gesturescreen-challenger-v1-video-clips-ppt-20260916-v1",
+      "date": "2026-09-16",
+      "task": "GestureScreen 挑战者 V1 板级修正、手势视频采后标注与苏晴配音代码讲解 PPT",
+      "result": "updated",
+      "summary": "已复盘：新增转场音频注入时必须在 p:sld 根元素声明关系命名空间、并把关系 ID 当作不透明字符串判重的经验；最终 11 页配音包通过结构、布局、媒体关系与重新导入检查，未做 WPS/PowerPoint 实播或上板测试。"
+    },
+    {
+      "review_id": "gesturescreen-static-marker-ppt-generic-voice-20260916-v2",
+      "date": "2026-09-16",
+      "task": "GestureScreen 配音讲解 PPT 增加逐段静态标记，并将技能中的语音概念改为提供方无关",
+      "result": "updated",
+      "summary": "已复盘：11 个内容页拆为 32 个静态讲解步骤，每步绑定一个可见标记与一段短音轨；同时按用户纠正把技能中的语音定义扩展为录音、导入音频、任意 TTS 或声音插件，苏晴仅为可选提供方。"
+    },
+    {
+      "review_id": "gesturescreen-three-bugfix-rounds-ppt-20260916-v1",
+      "date": "2026-09-16",
+      "task": "三轮代码修复、采集回归与增量更新同步配音代码讲解PPT",
+      "result": "updated",
+      "summary": "复盘三轮红绿测试与当前源码摘录；旧浏览器截图明确为历史证据，新增界面只有模拟DOM回归；41步最终文件已逐张查看，27段未变化音轨完整字节保持，14段更新音轨完成。无上板或WPS实播。"
+    },
+    {
+      "review_id": "gesturescreen-ppt-no-sound-repair-20260916-v3",
+      "date": "2026-09-16",
+      "task": "修复三轮代码讲解PPT无声音",
+      "result": "updated",
+      "summary": "用户报告旧版PPT没有声音。文件中41段音频完整，但只有切换声音。新版保留音轨和正文标记，新增媒体对象、入页播放及手动入口；包检查和像素对比通过，尚无WPS或PowerPoint实播确认。"
+    },
+    {
+      "review_id": "ebvc-project-final-cleanup-20260923",
+      "date": "2026-09-23",
+      "task": "项目聊天复盘与最终讲解资料归档",
+      "result": "updated",
+      "summary": "复核最后交付版本与媒体关系；补充按主题保留及历史快照边界，并压缩参考文档多余空行。"
+    },
+    {
+      "review_id": "agent-architecture-lecture-20260930-final-v1",
+      "date": "2026-10-01",
+      "task": "12来源Agent架构中文源码教学PPT与苏晴视频",
+      "result": "updated",
+      "summary": "复盘首次术语、备注数字、图片裁剪往返、音频感知边界与静帧字幕更新，证据等级均为文件或实际媒体检查，未升级为WPS实播或人耳评价。"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "source-backed-multiple-change-rounds",
+      "scope": "工程代码 PPT，包含跨任务修改与并行开发期间的源码更新",
+      "observation": "本轮可读性重构和上一轮功能补全需要区分；同一代码片段的行号会随重构变化。制作期间 BSP 和模型脚本行号持续变化，草稿需要自动从锚点重新提取代码；早期构建数值也会被后续修复改变。",
+      "guidance": "读取指定任务后再与当前文件和历史快照核对，逐页保留来源、函数、行号和摘要，旧片段明确版本。先编排稳定主线，把最终构建事实保存在单独数据文件；由集成负责人确认最终结果后重抽源码并计算 SHA，再在交付前校验文件哈希、引用行号和实际代码行。最终数字未确认时不导出正式文件。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/EBVC/GestureScreen/Build/code-changes-20260914/content.json",
+        "E:/AIProject/EBVC/GestureScreen/Deliverables/GestureScreen-两轮修改讲稿与源码索引-20260914.md",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/completion-20260915/build/prepare_content.mjs",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/completion-20260915/build/check_sources.py",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/completion-20260915/source_index.json"
+      ],
+      "limitations": "这是来源与内容组织方法，不固定某个工程的页数、模块名或资源数值。SHA 和行号核验只能证明所讲版本与片段一致，不能代替代码行为审查和硬件测试。",
+      "first_recorded": "2026-09-14",
+      "last_reviewed": "2026-09-15",
+      "review_id": "gesturescreen-completion-ppt-20260915-v2"
+    },
+    {
+      "id": "wps-no-visible-object-highlights",
+      "scope": "用户于 2026-09-14 使用 WPS 放映旧版同步标记 PPT",
+      "observation": "用户反馈声音播放时完全没有标记；旧版使用转场声音与对象出现/消失时间节点。",
+      "guidance": "静态渲染与配套视频通过不能替代目标软件实播。WPS 或未知播放器下不要仅依赖未经实播验证的对象时间树。",
+      "evidence_level": "user_reported",
+      "evidence": [
+        "Codex任务 01a09e8c-2031-72f2-9df2-ff983c5dc712：用户答复“WPS。放映时完全没有标记”",
+        "E:/AIProject/EBVC/GestureScreen/Build/narration-sync-20260914/package.py"
+      ],
+      "limitations": "未查明具体 WPS 版本与底层解析原因，不能泛化为所有 WPS 均不支持动画。",
+      "first_recorded": "2026-09-14",
+      "last_reviewed": "2026-09-14",
+      "review_id": "01a09e8c-2031-72f2-9df2-ff983c5dc712-skill-seed-20260914"
+    },
+    {
+      "id": "static-highlight-segment-audio-repair",
+      "scope": "允许增加物理幻灯片数量、且目标为 WPS 或播放器未知的分段配音演示",
+      "observation": "既有修复曾将 24 内容页拆成 72 步；本次又把 11 内容页拆成 32 步。两次都采用每步一个直接可见标记和一段短音轨。本次最终包逐步验证了 32 个标记、32 条媒体关系、音频长度与自动翻页，并重新导入、渲染和逐张检查。",
+      "guidance": "按语义区域拆成独立静态步骤，同一步骤绑定唯一可见标记与短音轨，删除旧对象动画依赖；显示内容页号和讲解步号，明确内容页数与实际播放步骤数。深色或复杂画面可使用清晰描边加低透明度底色，但必须逐张确认不遮挡正文。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/EBVC/GestureScreen/Build/narration-sync-20260914/wps-fix/verification.json",
+        "E:/AIProject/EBVC/GestureScreen/Build/narration-sync-20260914/wps_package.py",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/challenger-v1-video-clips-sync-20260916/source_index.json",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/challenger-v1-video-clips-sync-20260916/validation/sync-package.json",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/challenger-v1-video-clips-sync-20260916/validation/final-review.json"
+      ],
+      "limitations": "仍未在 WPS 或 PowerPoint 中实际放映，也没有用户确认本次文件在其 WPS 版本中成功自动播放；用户固定页数时不能直接采用扩页方案。",
+      "first_recorded": "2026-09-14",
+      "last_reviewed": "2026-09-16",
+      "review_id": "gesturescreen-static-marker-ppt-generic-voice-20260916-v2"
+    },
+    {
+      "id": "measure-glyphs-and-use-audio-sample-clock",
+      "scope": "中文代码页同步标记、拼接 WAV 与可选 MP4",
+      "observation": "估计行高会使边框碰到分号或下划线；音轨样本数可直接形成一致时间表。最终视频检查了每段开始后与中段的解码画面。",
+      "guidance": "测量实际字形外缘和行号位置，保持边框无遮挡；在样本域累积音频与停顿，视频按同一表生成并验证解码帧。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/EBVC/GestureScreen/Build/narration-sync-20260914/visual-verification.json",
+        "E:/AIProject/EBVC/GestureScreen/Build/narration-sync-20260914/video-verification.json"
+      ],
+      "limitations": "音频格式和字体需以当前项目实测为准；视频同步验证不等同 PPT 实播。",
+      "first_recorded": "2026-09-14",
+      "last_reviewed": "2026-09-14",
+      "review_id": "01a09e8c-2031-72f2-9df2-ff983c5dc712-skill-seed-20260914"
+    },
+    {
+      "id": "persist-tts-jobs-without-large-shell-arguments",
+      "scope": "Windows 上排队生成大量语音片段",
+      "observation": "把持续增长的完整任务 JSON 作为 PowerShell 命令参数落盘时，触发 Windows 错误 206；已有服务任务并未丢失。",
+      "guidance": "保存稳定 job_id，状态不明先查询再恢复；通过文件与短参数存取任务清单，避免大 JSON 内联命令和重复合成。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "Codex任务 01a09e8c-2031-72f2-9df2-ff983c5dc712：生成 72 段语音时的持久化错误与恢复",
+        "E:/AIProject/EBVC/GestureScreen/Build/narration-sync-20260914/jobs.json"
+      ],
+      "limitations": "队列上限、工具等待时间和语音服务路径应读取当前插件说明，不固定到其他 TTS 服务。",
+      "first_recorded": "2026-09-14",
+      "last_reviewed": "2026-09-14",
+      "review_id": "01a09e8c-2031-72f2-9df2-ff983c5dc712-skill-seed-20260914"
+    },
+    {
+      "id": "fpga-code-ppt-shape-backend-timing-boundary",
+      "scope": "含软件参考、HLS/RTL 协同仿真与 OOC 实现的工程讲解 PPT",
+      "observation": "同一工程中主机验证了完整部署尺寸，RTL 协同仿真验证完整拓扑的小尺寸图，OOC 内部时序满足约束，但小图周期表明实现尚未满足实时目标。仅列 PASS 或频率会误导读者。",
+      "guidance": "讲义的验证表同时注明输入尺寸、通道/算子是否完整、执行后端和比对范围；把 HLS 估算、Vivado 布线后资源、仿真周期及实板 FPS 分开。内部时序通过不能替代整网吞吐或板级验收。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/FPGAVibecoding/liteseg_vivado/system/VALIDATION.md",
+        "E:/AIProject/FPGAVibecoding/liteseg_vivado/system/build/full_graph_results.json",
+        "E:/AIProject/FPGAVibecoding/liteseg_vivado/system/build/hls/solution/sim/report/liteseg_cosim.rpt",
+        "E:/AIProject/FPGAVibecoding/liteseg_vivado/system/build/ooc/result.txt"
+      ],
+      "limitations": "仅对应文件、工具执行和报告检查；未完成目标板、目标内核或 WPS/PowerPoint 实播验证。",
+      "first_recorded": "2026-09-15",
+      "last_reviewed": "2026-09-15",
+      "review_id": "01a09e13-b8e4-7732-9a50-5d20938085b4-pspl-20260915"
+    },
+    {
+      "id": "model-code-ppt-public-fixture-personal-evidence",
+      "scope": "包含公开预训练模型、合成训练夹具和个人数据采集的嵌入式 AI 工程 PPT",
+      "observation": "真实公开五类权重可复用并做 C/TFLite 数值对照，临时合成七类数据可跑通训练和导出，但两者都不能证明目标个人七类识别准确率。",
+      "guidance": "分别注明模型来源与原类别、是否下载原始训练数据、验证输入是真实图像还是数值夹具、执行后端和数值误差口径；把模型安装完整性、业务验收标志、目标板时延和真实分类准确率分开呈现。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/EBVC/GestureScreen/Models/TRAINING.md",
+        "E:/AIProject/EBVC/GestureScreen/Models/validation/c_backend_numeric.json",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/completion-20260915/讲稿与源码入口.md"
+      ],
+      "limitations": "本次无本人七类数据，无目标板推理时延和实机验收；不能把数值零误差解释为分类准确率。",
+      "first_recorded": "2026-09-15",
+      "last_reviewed": "2026-09-15",
+      "review_id": "gesturescreen-completion-ppt-20260915-v2"
+    },
+    {
+      "id": "embedded-ppt-concept-image-visible-label",
+      "scope": "使用 AI 概念图作嵌入式工程讲解封面",
+      "observation": "封面中通用示意板与目标板名称同页，若只在讲者备注声明插画来源，观众仍可能把它理解为目标硬件运行照片；v2 在页面上直接增加可见说明。",
+      "guidance": "使用包含板卡、屏幕或仪器的概念插画时，在画面上清楚但低调地标注“概念示意，非实机照片”；真实外形、连接与实机行为仍使用原理图、实物照片或实际测试证据说明。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/EBVC/GestureScreen/Presentations/completion-20260915/previews/final-v2/slide-01.png",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/completion-20260915/validation/v2-visual-review.json"
+      ],
+      "limitations": "可见标注用于解释图像性质，不将生成图变成板级接线或硬件验收证据。",
+      "first_recorded": "2026-09-15",
+      "last_reviewed": "2026-09-15",
+      "review_id": "gesturescreen-completion-ppt-20260915-v2"
+    },
+    {
+      "id": "ooxml-transition-audio-root-namespace",
+      "scope": "向现有 PPTX 幻灯片注入逐页转场 WAV，尤其是由不同工具生成且命名空间按需局部声明的页面",
+      "observation": "首次注入 p:snd r:embed 后，纯文本搜索发现图片子节点已有局部 xmlns:r，因而没有在 p:sld 根元素声明关系命名空间；包检查和重新导入分别报 unbound prefix。改为只检查根标签、在根上补 xmlns:r，并重新封装后，11 页包完整性、布局、音频关系和 Artifact Tool 重新导入均通过。基础关系 ID 同时使用 UUID 风格 R...，不能假定为连续 rIdN。",
+      "guidance": "注入根级 p:transition 前解析或至少精确检查 p:sld 根标签的命名空间，不要用全文 contains 代替作用域检查；为 audio relationship 生成明确且在该 .rels 中不存在的 ID，把已有 ID 当作不透明字符串判重。媒体写入后必须同时运行 XML/关系完整性检查和第一方重新导入。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/EBVC/GestureScreen/Presentations/challenger-v1-video-clips-20260916/build/embed_audio.mjs",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/challenger-v1-video-clips-20260916/validation/audio-package.json",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/challenger-v1-video-clips-20260916/validation/base-finalizer-v3.json"
+      ],
+      "limitations": "只验证了 OOXML 结构、媒体格式、静态渲染与 Artifact Tool 重新导入；没有在 WPS 或 PowerPoint 中实际播放，不能据此断言所有播放器都会自动播放转场声音。",
+      "first_recorded": "2026-09-16",
+      "last_reviewed": "2026-09-16",
+      "review_id": "gesturescreen-challenger-v1-video-clips-ppt-20260916-v1"
+    },
+    {
+      "id": "voice-source-provider-neutral",
+      "scope": "工程代码讲解 PPT 的录音、配音生成、媒体嵌入与同步验证",
+      "observation": "用户明确纠正：技能中的“语音”不单指苏晴语音。语音来源可以是用户录音、既有音频、本地或系统 TTS、以及任意声音插件；不同提供方具有不同格式、队列和任务状态规则。",
+      "guidance": "把讲稿分段、目标区域、实际音频时长与同步结构定义成提供方无关的共同契约。优先使用用户给定音频或明确指定的提供方；只有选择具体提供方后才加载并应用其队列、字数、格式和状态规则，不把苏晴或其他单一音色写成技能依赖。",
+      "evidence_level": "user_reported",
+      "evidence": [
+        "当前任务用户纠正：skill 中指的语音不单指代苏晴语音",
+        "C:/Users/ruyangge/.codex/skills/userskill-code-explainer-ppt/SKILL.md",
+        "C:/Users/ruyangge/.codex/skills/userskill-code-explainer-ppt/references/narration-sync.md"
+      ],
+      "limitations": "本次成品是对既有苏晴配音 PPT 的修订，因此仍使用苏晴参考音色；尚未用另一种语音提供方生成同类成品进行交叉验证。",
+      "first_recorded": "2026-09-16",
+      "last_reviewed": "2026-09-16",
+      "review_id": "gesturescreen-static-marker-ppt-generic-voice-20260916-v2"
+    },
+    {
+      "id": "incremental-code-ppt-historical-ui-evidence",
+      "scope": "多轮修改后更新带配音的代码讲解PPT，尤其含既有浏览器截图",
+      "observation": "原流程的真实Edge截图仍能说明采集主线，但新增审阅同步只执行模拟DOM测试；若继续放在本轮最终验证表中而不注明日期，会把旧截图扩展为新版本浏览器验收。新版已在画面、表格与语音上区分历史流程和当前回归。",
+      "guidance": "逐项绑定测试日期、代码版本与后端。复用旧截图时显式标记历史证据，不能把模拟DOM、API或静态渲染升级为真实浏览器验收。语义未改变的音轨可按讲稿匹配复用，但重新映射步骤、源码引用与标记，并核对最终嵌入媒体与原音轨一致。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/EBVC/GestureScreen/Docs/bugfix-three-rounds-20260916.md",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/bugfix-3rounds-sync-20260916/build/prepare.mjs",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/bugfix-3rounds-sync-20260916/validation/final-review.json"
+      ],
+      "limitations": "本次未进行新版本真实浏览器验收、语义转写核对或WPS/PowerPoint实播。复用音轨需结合当前语义判断，单纯字节一致不能证明内容正确。",
+      "first_recorded": "2026-09-16",
+      "last_reviewed": "2026-09-16",
+      "review_id": "gesturescreen-three-bugfix-rounds-ppt-20260916-v1"
+    },
+    {
+      "id": "requested-bugfix-rounds-red-green-ppt-trace",
+      "scope": "用户同时授权多轮bug修复与更新工程讲解PPT",
+      "observation": "三轮分别复现了跨会话引用、长片段日志和重复训练/审阅旧状态问题；新增用例在对应修复前失败，修复后分阶段回归。演示中的18、21、25项是各阶段实际结果，不能把三次同一回归运行当作三轮修复。",
+      "guidance": "按用户指定轮数保留独立问题、修改前复现、代码修复位置及修复后回归，演示从最终源码抽取原文和实际行号，并明确省略。已有测试全绿时仍以真实缺陷扩充覆盖，不为凑轮数虚构问题。没有Git历史时可用修改前快照和逐轮记录建立证据。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/EBVC/GestureScreen/Build/bugfix-3rounds-20260916/baseline/sources-before.zip",
+        "E:/AIProject/EBVC/GestureScreen/Docs/bugfix-three-rounds-20260916.md",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/bugfix-3rounds-sync-20260916/validation/final-review.json"
+      ],
+      "limitations": "此规则仅在用户已经要求代码修改时适用；单独制作或更新PPT不授权修改业务代码。",
+      "first_recorded": "2026-09-16",
+      "last_reviewed": "2026-09-16",
+      "review_id": "gesturescreen-three-bugfix-rounds-ppt-20260916-v1"
+    },
+    {
+      "id": "narrated-ppt-user-no-sound-despite-embedded-audio",
+      "scope": "2026-09-16 GestureScreen三轮修复同步配音PPT，播放器本轮未确认",
+      "observation": "用户报告PPT没有声音；旧版41段WAV存在并此前通过文件检查，使用切换声音而无普通音频对象和播放时间节点。",
+      "guidance": "先确认用户所用文件、播放器和放映模式；将媒体存在、播放触发及目标软件实播分开。不把文件通过升级为声音播放正常，也不直接认定所有WPS不支持声音。",
+      "evidence_level": "user_reported",
+      "evidence": [
+        "当前任务用户：PPT没有声音",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/bugfix-3rounds-sync-20260916/build/embed_audio.mjs"
+      ],
+      "limitations": "具体播放器和无声根因未确定；切换触发兼容只是推断。",
+      "first_recorded": "2026-09-16",
+      "last_reviewed": "2026-09-16",
+      "review_id": "gesturescreen-ppt-no-sound-repair-20260916-v3"
+    },
+    {
+      "id": "narrated-ppt-media-autoplay-click-fallback-file-repair",
+      "scope": "针对只有切换声音且用户报告无声的分段讲解PPT",
+      "observation": "修复加入原生媒体承载对象、audio/media关系、音量100000且不静音的入页时间节点和点击媒体动作，移除旧切换声音。41段音轨完整字节不变，正文及标记XML原样保留，最终41张渲染像素变化限定在播放入口。",
+      "guidance": "可尝试普通内嵌媒体播放结构和明确手动入口；保护原音轨与同步标记，检查命名空间、关系、目标ID、停留时长和变动区域。媒体控制避开页底标记。不要通过反复重录声音来解决尚未定位的触发问题。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/EBVC/GestureScreen/Presentations/bugfix-3rounds-sync-20260916/validation/audio-repair-v3.json",
+        "E:/AIProject/EBVC/GestureScreen/Presentations/bugfix-3rounds-sync-20260916/validation/audio-repair-visual-v3.json",
+        "https://learn.microsoft.com/en-us/office/open-xml/presentation/how-to-add-an-audio-to-a-slide-in-a-presentation"
+      ],
+      "limitations": "只有文件与渲染验证；未确认WPS/PowerPoint实际自动或点击播放成功，不能记录为应用兼容已验证。",
+      "first_recorded": "2026-09-16",
+      "last_reviewed": "2026-09-16",
+      "review_id": "gesturescreen-ppt-no-sound-repair-20260916-v3"
+    },
+    {
+      "id": "archive-final-per-topic-and-media-closure",
+      "scope": "工程完成后的讲解资料清理",
+      "observation": "EBVC 多主题分别存在后续声音修复版、同步标记版及工程实现版；检查交付 PPTX 未发现外链关系。",
+      "guidance": "按主题保留最后交付版；删除原音频/渲染缓存前核对最终包和 HTML 依赖，保留讲稿与来源索引。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "E:/AIProject/EBVC/project_cleanup_20260923/final-deliverables.json",
+        "任务 开发板选择错误的修正 01a0a5b2-68b7-7c52-bbae-ea3013a2475b"
+      ],
+      "limitations": "本次未重新渲染或在 WPS/PowerPoint 实播，历史未实播结论保持。",
+      "first_recorded": "2026-09-23",
+      "last_reviewed": "2026-09-23",
+      "review_id": "ebvc-project-final-cleanup-20260923"
+    },
+    {
+      "id": "teaching-first-use-terms-before-tts",
+      "scope": "面向初学者的中文工程讲解配音",
+      "observation": "独立内容审查在TTS前发现上下文、执行轨迹、token首次出现缺少白话解释；补齐后内容复核通过，避免批量配音返工。",
+      "guidance": "在讲稿冻结和批量TTS前同时检查屏幕正文与讲稿的重要术语首次出现，给短而准确的白话解释，并说清用量单位。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\research\\content_revision_v2.json",
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\review\\REVIEW-02_content_report_v2.md"
+      ],
+      "limitations": "这是内容可读性审查，无真实学生试讲证据；不要求所有页重复定义。",
+      "first_recorded": "2026-10-01",
+      "last_reviewed": "2026-10-01",
+      "review_id": "agent-architecture-lecture-20260930-final-v1"
+    },
+    {
+      "id": "ppt-notes-quantities-source-audit",
+      "scope": "含讲者备注补充实验数字的源码/论文讲解PPT",
+      "observation": "正文与配音数字正确，但新增PPT备注把GAIA测试集300误写301；最终XML审查发现，修正后重新加载检查且24页画面不变。",
+      "guidance": "新增讲者备注也执行正文相同的数字证据要求；保留原文位置与精确指标。仅备注错误修复时验证最终备注和画面差异，未受影响的语音可保留。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\review\\REVIEW-03_pptx_xml_v4.json",
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\review\\REVIEW-03_pptx_report_v5.md"
+      ],
+      "limitations": "这里的复用只因获审讲稿语义未变；不能把所有备注变更都视为无需配音更新。",
+      "first_recorded": "2026-10-01",
+      "last_reviewed": "2026-10-01",
+      "review_id": "agent-architecture-lecture-20260930-final-v1"
+    },
+    {
+      "id": "artifact-tool-crop-roundtrip-image-verification",
+      "scope": "@oai/artifact-tool 26.905.11957的原始论文图局部展示",
+      "observation": "原始图裁剪元数据在PPTX导出后重新导入未保持预期局部画面；改为先提取原图裁剪像素再嵌入，最终24页重新加载渲染正确。",
+      "guidance": "裁剪图不仅检查作者预览，也检查最终PPTX重新导入图面；若裁剪元数据往返丢失，用有出处的局部图像字节作为图片资产，并标清原图局部。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\production\\render_source_pages.py",
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\production\\visual_review_v5.json"
+      ],
+      "limitations": "本次只证明该工具版本与输入的往返行为，不能泛化其他工具；裁剪图仍是图片，正文与表格保持原生可编辑。",
+      "first_recorded": "2026-10-01",
+      "last_reviewed": "2026-10-01",
+      "review_id": "agent-architecture-lecture-20260930-final-v1"
+    },
+    {
+      "id": "audio-input-unavailable-asr-evidence-boundary",
+      "scope": "当前模型不能感知真实音频时的中文合成讲解媒体审查",
+      "observation": "真实音频回传被系统省略，不能人耳感知。实际ASR能核查语义/数字，但英文名称存在不确定；中文用途表达并保留原名映射用于处理该疑义。",
+      "guidance": "确认音频输入能力；不可听时不得声称人耳试听。分别保留插件complete、解码、实际ASR、时轴与图面证据；ASR疑义复核或返工，不默许正确，交付明确主观音色/韵律/自然度未验。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\review\\audio_capability\\audio_input_capability_probe_v1.json",
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\review\\REVIEW-04_page24_content_v3.json",
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\governance\\legislator\\contract_activation_v1_1.json"
+      ],
+      "limitations": "ASR不是人耳；该项目在已授权且生效的证据契约下处理，其他项目仍遵守各自交付要求。",
+      "first_recorded": "2026-10-01",
+      "last_reviewed": "2026-10-01",
+      "review_id": "agent-architecture-lecture-20260930-final-v1"
+    },
+    {
+      "id": "ffmpeg-sparse-slides-subtitles-before-frame-expansion",
+      "scope": "静态幻灯片concat输入加烧录字幕的FFmpeg视频",
+      "observation": "稀疏concat图片先经ass再输出-r25，只复制了页首字幕状态，同页多个实际cue没有显示。将fps=25置于ass之前，使字幕在连续帧时间上重新渲染，并检查实际输出帧。",
+      "guidance": "幻灯片静帧输入先展开为连续帧，再用ass/subtitles渲染；不能靠输出帧率参数保证滤镜逐时刻更新。检查同页开头、中间、结尾不同cue的最终解码帧，不能仅看生成用PNG或单个样本。",
+      "evidence_level": "artifact_verified",
+      "evidence": [
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\review\\media_style_precheck\\precheck_samples.json",
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\production\\assemble_media.py",
+        "C:\\Users\\ruyangge\\Documents\\Codex\\2026-09-30\\agent-github\\work\\agent_lecture\\production\\final_sync_v2.json"
+      ],
+      "limitations": "技术字幕更新与可读性分别核查；时轴和ASR不证明主观听感。",
+      "first_recorded": "2026-10-01",
+      "last_reviewed": "2026-10-01",
+      "review_id": "agent-architecture-lecture-20260930-final-v1"
+    }
+  ]
+}

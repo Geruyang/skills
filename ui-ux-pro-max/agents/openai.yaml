@@ -1,0 +1,6 @@
+interface:
+  display_name: "UI UX Pro Max"
+  short_description: "Search UI patterns, styles, accessibility and stack guidance"
+  default_prompt: "Use $ui-ux-pro-max to find design guidance for the current interface."
+policy:
+  allow_implicit_invocation: true

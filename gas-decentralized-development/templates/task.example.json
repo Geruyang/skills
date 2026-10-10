@@ -1,0 +1,180 @@
+{
+  "schema_version": 2,
+  "example_only": true,
+  "id": "INVITE-API-001",
+  "mode": "decentralized",
+  "goal": "实现团队邀请接口；以已经批准的接口和权限契约为准。",
+  "allowed_paths": [
+    "src/invitations/**",
+    "tests/unit/invitations/**"
+  ],
+  "protected_paths": [
+    "tests/acceptance/**",
+    ".github/workflows/**",
+    "infra/**",
+    ".env*"
+  ],
+  "allowed_external_actions": [],
+  "dependencies": [],
+  "acceptance_criteria": [
+    "仅具备邀请权限的成员能创建邀请。",
+    "创建后 24h 到期的邀请不能接受；以生效契约确定的时间边界为准。",
+    "重复接受邀请不会创建重复成员关系。",
+    "接口行为符合批准的契约，未修改其他模块的公共语义。"
+  ],
+  "contract_version": "draft-1",
+  "base_commit": null,
+  "head_commit": null,
+  "owner": null,
+  "state": "DRAFT",
+  "state_version": 0,
+  "budget": {
+    "max_attempts": 2,
+    "max_tool_calls": 20,
+    "charged_to_run": true
+  },
+  "test_plan": {
+    "commands": [],
+    "status": "NOT_CONFIGURED",
+    "note": "先读取真实仓库确定命令与环境；不得把示例验收标准伪装成已存在测试。 acceptance_items 是示例约束；意图/条款引用、容差范围、实际方法与环境未补齐前不得进入 READY。"
+  },
+  "evidence": [],
+  "blocking_issues": [
+    "真实项目目录、审批记录、基础提交与测试命令尚未提供。"
+  ],
+  "dispatch": {
+    "lease_id": null,
+    "lease_expires_at": null,
+    "fencing_token": null,
+    "expected_state_version": 0,
+    "claim_record": null,
+    "start_record": null,
+    "submission_record": null
+  },
+  "run_id": "example-team-invitations",
+  "owner_role": "executor",
+  "owner_epoch": null,
+  "contract_record": null,
+  "blocking_dispute_ids": [],
+  "acceptance_items": [
+    {
+      "criterion_id": "INV-01",
+      "acceptance_criteria_index": 0,
+      "intent_refs": [],
+      "rule_refs": [],
+      "observable_result": "无邀请权限的成员创建邀请被拒绝；有权限成员按契约创建成功。",
+      "tolerance_or_range": null,
+      "mandatory": true,
+      "verification_method": {
+        "description": "覆盖授权与未授权主体的确定性接口检查。",
+        "command_or_review_procedure": null
+      },
+      "required_environment": null,
+      "pass_condition": "允许与拒绝行为、状态码及副作用均符合生效权限条款。",
+      "evidence_requirements": [
+        "精确候选摘要",
+        "实际方法、环境、时间与执行记录",
+        "可复核的原始输出或具名人工审查依据"
+      ],
+      "exception_authority": {
+        "authority_record": null,
+        "allowed_scope": [],
+        "hard_gate_override_allowed": false
+      },
+      "verification_owner_identity": null
+    },
+    {
+      "criterion_id": "INV-02",
+      "acceptance_criteria_index": 1,
+      "intent_refs": [],
+      "rule_refs": [],
+      "observable_result": "邀请在契约确定的 24h 到期边界不能被接受。",
+      "tolerance_or_range": null,
+      "mandatory": true,
+      "verification_method": {
+        "description": "可控时钟检查到期前、边界时刻及边界后；不能只等待一次自然到期。",
+        "command_or_review_procedure": null
+      },
+      "required_environment": null,
+      "pass_condition": "每个边界点的接受或拒绝结果符合生效时间条款；时间精度和容差已明确。",
+      "evidence_requirements": [
+        "精确候选摘要",
+        "实际方法、环境、时间与执行记录",
+        "可复核的原始输出或具名人工审查依据"
+      ],
+      "exception_authority": {
+        "authority_record": null,
+        "allowed_scope": [],
+        "hard_gate_override_allowed": false
+      },
+      "verification_owner_identity": null
+    },
+    {
+      "criterion_id": "INV-03",
+      "acceptance_criteria_index": 2,
+      "intent_refs": [],
+      "rule_refs": [],
+      "observable_result": "重复接受同一邀请不会生成重复成员关系。",
+      "tolerance_or_range": null,
+      "mandatory": true,
+      "verification_method": {
+        "description": "重复请求并核对响应与持久化成员关系；并发范围按生效契约确定。",
+        "command_or_review_procedure": null
+      },
+      "required_environment": null,
+      "pass_condition": "在约定重复及并发范围内，成员关系数量与返回行为符合幂等条款。",
+      "evidence_requirements": [
+        "精确候选摘要",
+        "实际方法、环境、时间与执行记录",
+        "可复核的原始输出或具名人工审查依据"
+      ],
+      "exception_authority": {
+        "authority_record": null,
+        "allowed_scope": [],
+        "hard_gate_override_allowed": false
+      },
+      "verification_owner_identity": null
+    },
+    {
+      "criterion_id": "INV-04",
+      "acceptance_criteria_index": 3,
+      "intent_refs": [],
+      "rule_refs": [],
+      "observable_result": "接口行为符合生效契约，其他模块的受保护公共语义保持兼容。",
+      "tolerance_or_range": null,
+      "mandatory": true,
+      "verification_method": {
+        "description": "接口契约检查及受影响模块回归；范围由变更影响记录确定。",
+        "command_or_review_procedure": null
+      },
+      "required_environment": null,
+      "pass_condition": "适用契约检查和受影响回归全部满足必需条件，未改动受保护语义。",
+      "evidence_requirements": [
+        "精确候选摘要",
+        "实际方法、环境、时间与执行记录",
+        "可复核的原始输出或具名人工审查依据"
+      ],
+      "exception_authority": {
+        "authority_record": null,
+        "allowed_scope": [],
+        "hard_gate_override_allowed": false
+      },
+      "verification_owner_identity": null
+    }
+  ],
+  "runtime_evidence_ref": null,
+  "feasibility_evidence_refs": [],
+  "intent_coverage_matrix": [],
+  "execution_ownership": {
+    "executor_name": null,
+    "development_owner_identity": null,
+    "verification_owner_identity": null,
+    "module_ref": null,
+    "development_paths": [],
+    "test_code_paths": [],
+    "shared_resources": [],
+    "ownership_agreement_ref": null,
+    "monitor_record_refs": [],
+    "note": "READY 前绑定同一具名执行者负责开发、测试/验证代码和该项验证，核对身份/任期、允许路径及共享资源协商；未填写不表示已派工或已认领。多执行者平级自主认领，不指挥彼此。"
+  }
+}

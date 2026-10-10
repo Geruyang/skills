@@ -1,0 +1,4 @@
+interface:
+  display_name: "NUEDC-STM32-MSPM0-SKILL"
+  short_description: "NUEDC STM32 and MSPM0 firmware workflow"
+  default_prompt: "Use $nuedc-stm32-mspm0-skill to configure and implement this NUEDC firmware project for the detected STM32 or MSPM0 toolchain."

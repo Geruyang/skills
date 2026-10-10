@@ -1,0 +1,4 @@
+interface:
+  display_name: "原神日常与攻略助手"
+  short_description: "规划日常养成与版本任务攻略，并提供可核验资料和剧透控制"
+  default_prompt: "Use $genshin-companion to plan my Genshin tasks and explain how to complete them."

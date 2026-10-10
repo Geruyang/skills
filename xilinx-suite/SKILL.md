@@ -1,0 +1,201 @@
+---
+name: xilinx-suite
+description: Xilinx 全工具链综合助手，覆盖从零到一的完整 FPGA/MPSoC 工程构建，包括： - Vivado：硬件设计、Block Design、IP 配置、XDC 约束、综合实现、比特流生成 - Vitis HLS：C/C++ 高层次综合，生成自定义 IP 核 - Vitis Unified IDE（2022.x+）：嵌入式软件开发，Platform/Domain/Application 创建，XSCT 脚本 - PetaLinux：嵌入式 Linux 系统构建，BSP 配置，内核/rootfs 定制，启动镜像生成 - 器件支持：Zynq UltraScale+ MPSoC（EG/EV 全系及 ZCU10x 评估板）、Versal、纯 FPGA（UltraScale+/UltraScale/7 系列） 只要用户提到以下任何内容，请立即使用本 skill： vivado、vitis、hls、高层次综合、vitis_hls、petalinux、zynq、ultrascale、fpga、mpsoc、xsa、比特流、 block design、综合、实现、xdc、约束、IP核、AXI、嵌入式软件、裸机程序、linux镜像、bsp、设备树、 jesd204、jesd204b、jesd204c、204b升级204c、204b迁移、高速串行、DAC、ADC、AD9144、AD9250、AD9680、 grpc、protobuf、rpc、远程调用、上位机通信、petalinux grpc、嵌入式 rpc、zmq 迁移 grpc、udmabuf、axi dma 上位机 请在用户描述任何 Xilinx/AMD FPGA 硬件或软件设计任务时主动使用本 skill。
+---
+
+## 跨客户端运行约定
+
+本导出版本供智谱 ZCode、Claude Code 及支持 SKILL.md 的 Agent 使用。下文中的“当前 Agent/客户端”指实际执行环境；关于 Codex、OpenAI、ChatGPT 的产品说明仍指对应产品。
+技能根目录以本 SKILL.md 所在目录为准，示例中的 E:/AIProject/skills 是本次导出库，可按安装位置调整。使用当前客户端真实提供的文件、终端、检索、任务与子 Agent 能力；旧工具名不是可用性证据。优先遵守当前客户端的权限规则和用户授权。
+以下迁移约定优先于保留正文中涉及运行环境、专有工具和呈现语法的旧要求；领域流程、验证要求、硬件/数据接口和用户偏好继续适用。完整限制见 [PORTABILITY.md](PORTABILITY.md)。
+
+
+
+# Xilinx 全工具链 Skill
+
+本 skill 帮助你完成 Xilinx（AMD）完整设计流程，生成可直接运行的脚本和文件。
+
+---
+
+## 第一步：判断工具和流程
+
+**收到任何 Xilinx 相关请求时，首先确定用户处于哪个阶段，然后加载对应参考文件。**
+
+### 完整设计流程总览
+
+```
+[可选] Vitis HLS        →    Vivado          →    Vitis Unified / PetaLinux
+C/C++ 算法 → IP 核        硬件平台设计           软件开发 / Linux 系统
+  hls_guide.md              vivado_guide.md      vitis_unified_guide.md
+                          + mpsoc_ps_config.md    petalinux_guide.md
+                          + xdc_constraints.md
+```
+
+### 工具路由表
+
+| 用户描述的任务 | 需要的工具 | 加载的参考文件 |
+|--------------|-----------|--------------|
+| C/C++ 算法加速、pragma 优化、生成 IP | Vitis HLS | `references/hls_guide.md` |
+| 创建工程、Block Design、配置 PS/IP、XDC、比特流 | Vivado | `references/vivado_guide.md` + 按需加载 |
+| ZynqMP Block Design、PS-PL AXI/时钟/复位拓扑 | Vivado | `references/mpsoc_bd_guide.md` |
+| PS 详细配置（DDR、MIO、时钟）| Vivado | `references/mpsoc_ps_config.md` |
+| IO 引脚约束、时序约束 | Vivado | `references/xdc_constraints.md` |
+| XDC 语法或模板快速查询 | Vivado | `references/xdc_guide.md` |
+| 无 PS 的 UltraScale+ / VU9P 纯 PL 工程 | Vivado | `references/vu9p_guide.md` |
+| Vivado Tcl 命令查询 | Vivado | `references/tcl_commands.md` |
+| JESD204B→C 迁移、高速串行 ADC/DAC 接口 | Vivado | `references/jesd204b_to_c_migration.md` |
+| 嵌入式软件、裸机程序、RTOS、platform/domain | Vitis Unified | `references/vitis_unified_guide.md` |
+| 嵌入式 Linux、kernel 配置、rootfs、启动镜像 | PetaLinux | `references/petalinux_guide.md` |
+| PetaLinux 上跑 gRPC C++ 服务端 / Python 客户端、ZMQ→gRPC 迁移、udmabuf+AXI DMA 暴露 RPC | PetaLinux | `references/grpc_on_petalinux.md` |
+| 查找官方文档编号、UG/PG/DS 编号查询、文档用途说明 | 通用 | `references/official-docs/index.md` |
+
+---
+
+## 第二步：需求确认（必须先做）
+
+### FPGAVibecoding 板卡事实安全护栏
+
+当任务位于 `E:\AIProject\FPGAVibecoding` 时，在生成任何 PS 配置、Block Design、XDC、启动链或板级 Tcl 前，必须先读取：
+
+- `E:\AIProject\FPGAVibecoding\docs\hardware\MYC-CZU3EG-V3\README.md`
+
+该项目当前资料和工程以 MYD-CZU3EG-V3 / MYC-CZU3EG-V3 及 `XCZU3EG-1SFVC784I` 为工作基线；这不代表已经核验用户手中实物的完整 SKU、PCB revision 或装配选项。器件型号也不能替代板卡原理图、引脚表、Bank 电压、DDR 拓扑或厂商 PS preset。必须遵守：
+
+1. `references/mpsoc_ps_config.md`、其他参考文件及评估板示例中的 DDR、MIO、时钟和引脚值仅为示例，不能当作 MYD/MYC-CZU3EG-V3 的硬件事实。
+2. 对未经项目资料明确验证的 DDR/MIO/pinout/IOSTANDARD/PS preset，不推断、不填默认值、不生成可执行配置。
+3. 若缺少原理图、pinout、板级 XDC 或厂商 preset，应明确列出缺失项并暂停相关配置，等待用户补充资料。
+4. Vivado/Vitis/PetaLinux 命令必须按项目实际版本复核；当前项目基线为 Vivado 2026.1，旧版本示例不能机械套用。
+5. 参考文件里的命令和路径均视为模板，不得仅因读取本 skill 就自动执行。
+6. 磁盘写入或格式化、递归删除、`sudo`/系统配置、软件包或网络安装、JTAG/flash/program、重启及硬件部署必须由用户明确请求，并先通过只读检查解析精确目标。
+7. 禁止对 `/dev/sdX` 等占位目标执行命令；任何可破坏操作都必须用已验证的真实目标替换占位符，并遵循当前会话的审批与安全规则。
+
+在生成任何脚本之前，确认以下信息（没有明确答案的项主动提问）：
+
+### 所有工程必须确认
+1. **目标器件/开发板**：完整 part number 或板型（由用户提供）
+2. **Vivado/Vitis 版本**（如 2023.2、2024.1）
+3. **设计目标**：这个工程要实现什么功能？
+
+### HLS 工程额外确认
+4. **算法描述**：C/C++ 函数的输入输出和功能
+5. **性能目标**：目标时钟频率、延迟、吞吐量要求
+6. **接口类型**：AXI4-Lite（控制）、AXI4-Stream（数据）、AXI4-Master（存储器访问）
+
+### Vivado 工程额外确认（MPSoC 类）
+4. **PS 配置**：DDR 类型和容量、MIO 外设（UART、Ethernet、USB、SD 等）
+5. **PL IP 需求**：需要哪些 AXI IP，是否有自定义 HDL 模块
+6. **时钟要求**：PL 时钟频率（pl0_ref_clk）
+
+### Vitis 工程额外确认
+4. **运行环境**：裸机（standalone）、FreeRTOS、还是 Linux 用户态
+5. **处理器核**：A53、R5、MicroBlaze
+6. **XSA 文件路径**：从 Vivado 导出的硬件描述文件
+
+### PetaLinux 工程额外确认
+4. **BSP 或 XSA**：是否有厂商 BSP？或者直接使用 Vivado 导出的 XSA？
+5. **自定义需求**：是否需要添加驱动/应用程序/设备树覆盖
+
+---
+
+## 第三步：按工具流程执行
+
+确认需求后，加载对应参考文件并按步骤生成脚本。
+
+### 加载参考文件的时机
+
+**始终在生成脚本之前先读取参考文件**，不要凭记忆生成 Tcl/XSCT/命令，因为不同 Vivado/Vitis 版本的 API 有差异。
+
+```
+Vivado 工程  → 先读 references/vivado_guide.md
+              → 如有 PS  → 再读 references/mpsoc_ps_config.md
+              → 如有 IO  → 再读 references/xdc_constraints.md
+              → 如有 JESD204 → 再读 references/jesd204b_to_c_migration.md
+
+HLS 工程     → 先读 references/hls_guide.md
+
+Vitis 工程   → 先读 references/vitis_unified_guide.md
+
+PetaLinux    → 先读 references/petalinux_guide.md
+              → 如需 gRPC（C++ server / Python client、ZMQ 迁移）→ 再读 references/grpc_on_petalinux.md
+```
+
+---
+
+## 输出规范
+
+每次生成脚本时，必须提供：
+
+1. **完整可运行的脚本文件**（`.tcl`、`.xdc`、`.py`、shell 脚本等）
+2. **运行命令**：如何在命令行或 GUI 中执行
+3. **预期输出**：脚本运行成功后会产生哪些文件
+4. **下一步提示**：完成本阶段后应该做什么
+
+### 文件组织规范
+
+```
+project_root/
+├── 01_hls/                  ← Vitis HLS 工程（可选）
+│   ├── hls_create.tcl
+│   └── src/*.cpp / *.h
+│
+├── 02_vivado/               ← Vivado 硬件工程
+│   ├── create_project.tcl
+│   ├── create_bd.tcl
+│   ├── add_sources.tcl
+│   ├── constraints/design.xdc
+│   ├── build.tcl
+│   └── output/
+│       ├── design.bit
+│       └── design_fixed.xsa
+│
+├── 03_vitis/                ← Vitis 软件工程
+│   ├── create_platform.tcl  (XSCT 脚本)
+│   ├── create_app.tcl
+│   └── src/*.c / *.h
+│
+└── 04_petalinux/            ← PetaLinux（可选）
+    ├── build.sh
+    └── config/
+```
+
+---
+
+## 跨工具数据流
+
+```
+Vitis HLS                    Vivado                    Vitis / PetaLinux
+─────────────────────────────────────────────────────────────────────────
+hls_ip/                  →   IP Catalog
+  solution/impl/ip       →   (add_files / ip_repo)
+                             ↓
+                         project.xsa         →        平台/BSP/Linux BSP
+                         design.bit          →        boot/BOOT.BIN
+```
+
+---
+
+## 常见错误和注意事项
+
+1. **版本兼容性**：Vivado 2022.x+ 的 `write_hw_platform` 替代了旧版 `write_sysdef`；Vitis Unified 2022.x+ 的 Tcl API 与 Classic 版本有重大差异
+2. **XSA 类型**：`write_hw_platform`（综合前，可编辑）vs `write_hw_platform -fixed -include_bit`（实现后，固定含比特流）
+3. **HLS IP 导入 Vivado**：需要在 Vivado 工程中添加 HLS IP 仓库路径，并刷新 IP 目录
+4. **PetaLinux 版本匹配**：PetaLinux 版本必须与 Vivado 版本一致（例如都用 2023.2）
+5. **器件系列判断**：`zu` 开头 → MPSoC；`vu`/`ku`/`xc7` → 纯 FPGA；`xcvc` → Versal
+
+---
+
+## 参考文件
+
+- `references/vivado_guide.md`：Vivado 工程创建、Block Design、综合实现、报告分析
+- `references/mpsoc_bd_guide.md`：ZynqMP Block Design、PS-PL AXI、时钟和复位拓扑
+- `references/mpsoc_ps_config.md`：Zynq UltraScale+ PS 详细配置（DDR、MIO、时钟参数）
+- `references/xdc_constraints.md`：XDC 约束完整指南（时序、IO、例外约束）
+- `references/xdc_guide.md`：XDC 语法与模板快速参考
+- `references/vu9p_guide.md`：无 PS 的 UltraScale+ / VU9P 纯 PL 工程参考
+- `references/tcl_commands.md`：Vivado Tcl 命令参考
+- `references/hls_guide.md`：Vitis HLS 工程流程（C/C++ → IP）
+- `references/vitis_unified_guide.md`：Vitis Unified IDE 2022.x+ 工程流程
+- `references/petalinux_guide.md`：PetaLinux 系统构建流程
+- `references/jesd204b_to_c_migration.md`：JESD204B→C IP 迁移指南（端口映射、数据位宽、AXI 寄存器、常见陷阱）
+- `references/grpc_on_petalinux.md`：PetaLinux + gRPC 端到端部署指南（rootfs 配置、libutf8_range 软链、VM 预生成 .pb.cc + 板上 g++、udmabuf/AXI DMA RPC 暴露、ZMQ→gRPC 迁移、常见 RCU stall 等陷阱）
+- `references/official-docs/index.md`：Xilinx/AMD 官方文档索引（UG/PG/DS/XAPP 编号、标题、用途、与本仓库参考指南的对应关系）

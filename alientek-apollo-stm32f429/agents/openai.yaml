@@ -1,0 +1,5 @@
+interface:
+  display_name: "正点原子阿波罗 STM32F429"
+  short_description: "基于本机资料盘开发、移植和调试阿波罗 STM32F429 固件"
+  default_prompt: "Use $alientek-apollo-stm32f429 to implement and verify firmware for the ALIENTEK Apollo STM32F429 board."
+

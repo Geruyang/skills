@@ -1,0 +1,7 @@
+interface:
+  display_name: "野火 STM32F429 挑战者开发"
+  short_description: "基于本地野火资料开发、移植、构建和调试挑战者固件"
+  default_prompt: "Use $embedfire-stm32f429-challenger to develop and verify firmware for my 野火 STM32F429 挑战者 board."
+
+policy:
+  allow_implicit_invocation: true

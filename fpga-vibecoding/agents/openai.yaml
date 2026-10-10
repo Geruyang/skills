@@ -1,0 +1,6 @@
+interface:
+  display_name: "FPGA-vibecoding · FZ3B"
+  short_description: "基于百度、ALINX 与 AMD 官方资料，开展 FZ3B 的 FPGA 与 PS/PL 项目开发"
+  default_prompt: "请使用 $fpga-vibecoding，基于我的百度 EdgeBoard FZ3B 和现有工程完成本次开发，按证据核验板级配置并分阶段验证。"
+policy:
+  allow_implicit_invocation: true

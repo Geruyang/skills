@@ -1,0 +1,7 @@
+interface:
+  display_name: "UserSkill-工程代码讲解PPT"
+  short_description: "制作可追溯源码的工程代码讲解PPT，处理配音同步与兼容性，并自动积累经验"
+  default_prompt: "使用 $userskill-code-explainer-ppt 为当前工程制作中文代码讲解 PPT，并将本次获得的可复用经验更新到技能中。"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agents"
+  short_description: "Build with the Agents API or Agents SDK"
+  default_prompt: "Use $agents to build and verify an agent for this project."

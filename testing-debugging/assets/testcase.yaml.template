@@ -1,0 +1,19 @@
+# Template testcase metadata for Zephyr Twister.
+# Copy to <test-dir>/testcase.yaml and adjust fields.
+
+common:
+  tags:
+    - smoke
+    - unit
+  timeout: 60
+  platform_allow:
+    - native_sim
+  integration_platforms:
+    - native_sim
+
+tests:
+  app.smoke.basic:
+    tags:
+      - basic
+    extra_args:
+      - CONF_FILE=prj.conf
